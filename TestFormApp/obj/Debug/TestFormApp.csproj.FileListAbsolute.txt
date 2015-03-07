@@ -1,0 +1,9 @@
+C:\Users\gbrill\Source\Repos\SpaceMouse\TestFormApp\bin\Debug\TestFormApp.exe.config
+C:\Users\gbrill\Source\Repos\SpaceMouse\TestFormApp\obj\Debug\TestFormApp.csprojResolveAssemblyReference.cache
+C:\Users\gbrill\Source\Repos\SpaceMouse\TestFormApp\obj\Debug\TestFormApp.Form1.resources
+C:\Users\gbrill\Source\Repos\SpaceMouse\TestFormApp\obj\Debug\TestFormApp.Properties.Resources.resources
+C:\Users\gbrill\Source\Repos\SpaceMouse\TestFormApp\obj\Debug\TestFormApp.csproj.GenerateResource.Cache
+C:\Users\gbrill\Source\Repos\SpaceMouse\TestFormApp\bin\Debug\TestFormApp.exe
+C:\Users\gbrill\Source\Repos\SpaceMouse\TestFormApp\bin\Debug\TestFormApp.pdb
+C:\Users\gbrill\Source\Repos\SpaceMouse\TestFormApp\obj\Debug\TestFormApp.exe
+C:\Users\gbrill\Source\Repos\SpaceMouse\TestFormApp\obj\Debug\TestFormApp.pdb
