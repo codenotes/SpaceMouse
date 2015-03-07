@@ -1,9 +1,9 @@
-﻿// Created by Microsoft (R) C/C++ Compiler Version 12.00.31101.0 (e8b11b37).
+﻿// Created by Microsoft (R) C/C++ Compiler Version 12.00.31101.0 (226b95ef).
 //
-// c:\users\gbrill\source\repos\spacemouse\win32project1\debug\TDxInput.tli
+// c:\users\gregory brill\source\repos\spacemouse\win32project1\debug\TDxInput.tli
 //
 // Wrapper implementations for Win32 type library TDxInput.Device
-// compiler-generated file created 03/07/15 at 14:08:22 - DO NOT EDIT!
+// compiler-generated file created 03/07/15 at 15:28:14 - DO NOT EDIT!
 
 #pragma once
 
