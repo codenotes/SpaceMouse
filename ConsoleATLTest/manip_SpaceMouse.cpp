@@ -75,7 +75,7 @@ public:
 				_3DKeyboard = _3DxSimpleDevice->Keyboard;
 
 				// Associate a configuration with this device
-		//		hr = _3DxSimpleDevice->LoadPreferences(_T("Animation"));
+				hr = _3DxSimpleDevice->LoadPreferences(_T("Animation"));
 				// Connect to the driver
 				hr = _3DxSimpleDevice->Connect();
 

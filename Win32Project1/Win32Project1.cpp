@@ -126,6 +126,7 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    ShowWindow(hWnd, nCmdShow);
    UpdateWindow(hWnd);
 
+   strcpy(temp, "initial");
    pSpaceMouse = new  osgVisual::SpaceMouse();
    int ret = pSpaceMouse->initialize();
 
@@ -144,12 +145,25 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 //  WM_DESTROY	- post a quit message and return
 //
 //
+
+
+void getReadings(HWND hWnd)
+{
+	double x, y, z,x2,y2,z2;
+
+	pSpaceMouse->getRotations(x, y, z);
+	pSpaceMouse->getTranslations(x2, y2, z2);
+	sprintf(temp, "Trans:x:%3f y:%3f z:%3.2f  Rotation:x:%.2f y:%.2f z:%.2f\n",x2,y2,z2, x, y, z);
+	InvalidateRect(hWnd, 0, TRUE);
+
+}
+
 LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 {
 	int wmId, wmEvent;
 	PAINTSTRUCT ps;
 	HDC hdc;
-	double x, y, z;
+	
 
 
 	switch (message)
@@ -158,12 +172,17 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		wmId    = LOWORD(wParam);
 		wmEvent = HIWORD(wParam);
 		// Parse the menu selections:
-		switch (wmId
+		switch (wmId)
 		{
+		
 		case IDM_ABOUT:
-		//	DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
-			pSpaceMouse->getRotations(x, y, z);
-			LOG("x:%.2f y:%.2f z:%.2f\n",x,y,z);
+			//DialogBox(hInst, MAKEINTRESOURCE(IDD_ABOUTBOX), hWnd, About);
+			SetTimer(hWnd, // window handle
+				0, // id of the timer message, leave 0 in this case
+				100, // millis
+				0 // callback
+				);
+
 			break;
 		case IDM_EXIT:
 			DestroyWindow(hWnd);
@@ -174,12 +193,23 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		break;
 	case WM_PAINT:
 		hdc = BeginPaint(hWnd, &ps);
-		// TODO: Add any drawing code here...
+		TextOut(hdc, 10, 10, TEXT("123"), strlen("123"));
+		TextOut(hdc, 20, 40, TEXT(temp), strlen(temp));
+		//pSpaceMouse->getRotations(x, y, z);
+		//sprintf(temp, "x:%.2f y:%.2f z:%.2f\n", x, y, z);
+		
 		EndPaint(hWnd, &ps);
 		break;
 	case WM_DESTROY:
 		PostQuitMessage(0);
 		break;
+
+	case WM_TIMER:
+
+		getReadings(hWnd);
+		break;
+
+
 	default:
 		return DefWindowProc(hWnd, message, wParam, lParam);
 	}
