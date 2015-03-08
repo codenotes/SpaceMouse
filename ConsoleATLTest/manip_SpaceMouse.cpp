@@ -15,7 +15,7 @@
 */
 
 #include "manip_spaceMouse.h"
-
+#define L__FUNCTION__ L""
 
 #define _ATL_APARTMENT_THREADED
 #define _ATL_NO_AUTOMATIC_NAMESPACE
@@ -35,8 +35,9 @@
 using namespace ATL;
 using namespace osgVisual;
 
+#include "C:\Users\Greg Brill\Source\Repos\SpaceMouse\ConsoleATLTest\Debug\tdxinput.tlh"
 
-#import "progid:TDxInput.Device" no_namespace
+//#import "progid:TDxInput.Device" no_namespace
 
 class SpaceMouse::SpaceMouseImpl
 {
@@ -105,6 +106,10 @@ public:
 		}
 	}
 
+	int getKeyBoard()
+	{
+	//	CComPtr<IVector3D> pTranslation = _3DKeyboard->
+	}
 
 	int getTranslations(double& dTX, double& dTY, double& dTZ)
 	{

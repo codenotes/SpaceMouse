@@ -1,16 +1,21 @@
-﻿Build started 3/7/2015 4:09:29 PM.
-     1>Project "C:\Users\Gregory Brill\Source\Repos\SpaceMouse\Win32Project1\Win32Project1.vcxproj" on node 2 (Build target(s)).
-     1>ClCompile:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /I"C:\lib\glut-3.7.6\include" /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Win32Project1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Win32Project1.cpp
-         Win32Project1.cpp
-       Link:
-         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Gregory Brill\Source\Repos\SpaceMouse\Debug\Win32Project1.exe" /INCREMENTAL /NOLOGO /LIBPATH:C:\lib\ARToolKit\DSVL\lib\ kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Gregory Brill\Source\Repos\SpaceMouse\Debug\Win32Project1.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Gregory Brill\Source\Repos\SpaceMouse\Debug\Win32Project1.lib" /MACHINE:X86 /SAFESEH Debug\Win32Project1.res
-         Debug\manip_SpaceMouse.obj
-         Debug\stdafx.obj
-         Debug\Win32Project1.obj
-         Win32Project1.vcxproj -> C:\Users\Gregory Brill\Source\Repos\SpaceMouse\Debug\Win32Project1.exe
-     1>Done Building Project "C:\Users\Gregory Brill\Source\Repos\SpaceMouse\Win32Project1\Win32Project1.vcxproj" (Build target(s)).
+﻿Build started 3/8/2015 9:13:19 AM.
+Project "C:\Users\Greg Brill\Source\Repos\SpaceMouse\Win32Project1\Win32Project1.vcxproj" on node 2 (Build target(s)).
+ClCompile:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt ..\ConsoleATLTest\manip_SpaceMouse.cpp
+  manip_SpaceMouse.cpp
+c:\users\greg brill\source\repos\spacemouse\consoleatltest\manip_spacemouse.cpp(142): warning C4101: 'ia' : unreferenced local variable
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /sdl /Od /Oy- /D WIN32 /D _DEBUG /D _WINDOWS /D _CRT_SECURE_NO_WARNINGS /D _MBCS /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\Win32Project1.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt Win32Project1.cpp
+  Win32Project1.cpp
+ResourceCompile:
+  C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /l"0x0409" /nologo /fo"Debug\Win32Project1.res" Win32Project1.rc 
+Link:
+  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\Greg Brill\Source\Repos\SpaceMouse\Debug\Win32Project1.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\Greg Brill\Source\Repos\SpaceMouse\Debug\Win32Project1.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /IMPLIB:"C:\Users\Greg Brill\Source\Repos\SpaceMouse\Debug\Win32Project1.lib" /MACHINE:X86 Debug\Win32Project1.res
+  Debug\manip_SpaceMouse.obj
+  Debug\stdafx.obj
+  Debug\Win32Project1.obj
+  Win32Project1.vcxproj -> C:\Users\Greg Brill\Source\Repos\SpaceMouse\Debug\Win32Project1.exe
+Done Building Project "C:\Users\Greg Brill\Source\Repos\SpaceMouse\Win32Project1\Win32Project1.vcxproj" (Build target(s)).
 
 Build succeeded.
 
-Time Elapsed 00:00:00.37
+Time Elapsed 00:00:03.29
