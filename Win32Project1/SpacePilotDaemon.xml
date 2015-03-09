@@ -5,7 +5,7 @@
     <ExecutableName>SpacePilotDaemon.exe</ExecutableName>
     <ApplicationIcon>3Dx.ico</ApplicationIcon>
     <Transport>S80</Transport>
-
+    <Grab>Hard</Grab>
   </AppInfo>
   <CfgProperties>
     <InheritsFrom>STR_DEFAULT_S80</InheritsFrom>

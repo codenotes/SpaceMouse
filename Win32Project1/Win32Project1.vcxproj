@@ -105,6 +105,9 @@
     <Image Include="small.ico" />
     <Image Include="Win32Project1.ico" />
   </ItemGroup>
+  <ItemGroup>
+    <Xml Include="SpacePilotDaemon.xml" />
+  </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
   </ImportGroup>
