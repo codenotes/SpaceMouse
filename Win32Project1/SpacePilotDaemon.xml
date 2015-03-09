@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<AppCfg Default="false" xmlns="" CfgFormatVersion="1.1" ThisFileVersion="1.1">
+  <AppInfo>
+    <Name>SpacePilotDaemon</Name>
+    <ExecutableName>SpacePilotDaemon.exe</ExecutableName>
+    <ApplicationIcon>3Dx.ico</ApplicationIcon>
+    <Transport>S80</Transport>
+
+  </AppInfo>
+  <CfgProperties>
+    <InheritsFrom>STR_DEFAULT_S80</InheritsFrom>
+    <Access>
+
+      <ReadOnly>false</ReadOnly>
+      <AllowInheritance>true</AllowInheritance>
+      <Hidden>false</Hidden>
+    </Access>
+    <Grab> Hard</Grab>
+  </CfgProperties>
+  <Settings>
+    <OverallScale>0.50</OverallScale>
+  </Settings>
+  <Devices>
+    <Device>
+      <Name>Standard 3D Mouse</Name>
+      <VendorID>0</VendorID>
+      <ProductID>0</ProductID>
+      <InheritsFrom>Standard 3D Mouse</InheritsFrom>
+      <Axis>
+        <Enabled>true</Enabled>
+        <Input>
+          <ActionID>HIDMultiAxis_Z</ActionID>
+          <Min>0</Min>
+          <Max>100</Max>
+        </Input>
+        <Output>
+          <ActionID>HIDMultiAxis_Z</ActionID>
+          <Scale>0.02</Scale>
+          <Reversed>false</Reversed>
+        </Output>
+      </Axis>
+      <Axis>
+        <Enabled>true</Enabled>
+        <Input>
+          <ActionID>HIDMultiAxis_X</ActionID>
+          <Min>-512</Min>
+          <Max>511</Max>
+        </Input>
+        <Output>
+          <ActionID>HIDMultiAxis_X</ActionID>
+          <Scale>1.00</Scale>
+        </Output>
+      </Axis>
+    </Device>
+  </Devices>
+</AppCfg>
