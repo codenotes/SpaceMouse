@@ -202,7 +202,7 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 				0 // callback
 				);
 
-			break;
+			break; 
 		case IDM_EXIT:
 			DestroyWindow(hWnd);
 			break;
