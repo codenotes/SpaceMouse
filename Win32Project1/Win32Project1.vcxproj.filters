@@ -41,6 +41,9 @@
     <ClCompile Include="..\ConsoleATLTest\manip_SpaceMouse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="vJoyFeeder.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ResourceCompile Include="Win32Project1.rc">

@@ -65,6 +65,8 @@ namespace osgVisual
 		* @return : 1=sucess, 0=failure.
 		*/
 		int getRotations(double& dX, double& dY, double& dZ);
+		int getKeyBoard();
+		HRESULT OnDevKeyDown(long keycode);
 	private:
 		/**
 		* \brief Device driver class
@@ -77,5 +79,6 @@ namespace osgVisual
 		* Pointer to the device driver class.
 		*/
 		SpaceMouseImpl* _spaceMouseImpl;
+		
 	};
 }       // END NAMESPACE

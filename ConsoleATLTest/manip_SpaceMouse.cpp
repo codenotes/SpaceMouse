@@ -14,34 +14,86 @@
 * OpenSceneGraph Public License for more details.
 */
 
-#include "manip_spaceMouse.h"
-#define L__FUNCTION__ L""
+//#define _ATL_ATTRIBUTES 1
+//
+//#define _ATL_APARTMENT_THREADED
+//#define _ATL_NO_AUTOMATIC_NAMESPACE
+//
+//#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// some CString constructors will be explicit
+//
+//#define _WIN32_DCOM
+//
+//#include <objbase.h>
+//#include <atlbase.h>
+//#include <atlcom.h>
+//#include <atlwin.h>
+//#include <atltypes.h>
+//#include <atlctl.h>
+//#include <atlhost.h>
+//
+//#include "manip_spaceMouse.h"
 
-#define _ATL_APARTMENT_THREADED
-#define _ATL_NO_AUTOMATIC_NAMESPACE
-
-#define _ATL_CSTRING_EXPLICIT_CONSTRUCTORS	// some CString constructors will be explicit
-
-#define _WIN32_DCOM
-
-#include <objbase.h>
-#include <atlbase.h>
-#include <atlcom.h>
-#include <atlwin.h>
-#include <atltypes.h>
-#include <atlctl.h>
-#include <atlhost.h>
-
+#include "stdafx.h"
 using namespace ATL;
 using namespace osgVisual;
 
-#include "C:\Users\Greg Brill\Source\Repos\SpaceMouse\ConsoleATLTest\Debug\tdxinput.tlh"
+
+
+#include "C:\Users\gbrill\Source\Repos\SpaceMouse\ConsoleATLTest\Debug\tdxinput.tlh"
+
+bool initFeeder(UINT iInterface = 1);
+void setButtonData(int button, bool state, UINT iInterface = 1);
+void setJoyData(long X, long Y, long Z, long XR, long ZR, UINT iInterface = 1);
 
 //#import "progid:TDxInput.Device" no_namespace
+
+
+static _ATL_FUNC_INFO KeyDownInfo = { CC_STDCALL, VT_EMPTY, 1, { VT_INT } };
+static _ATL_FUNC_INFO KeyUpInfo = { CC_STDCALL, VT_EMPTY, 1, { VT_INT } };
+
+extern char buttonInfo[512];
+
+
+class CKeyboardEvents :
+	public IDispEventSimpleImpl<1, CKeyboardEvents, &__uuidof(_IKeyboardEvents)>
+{
+public:
+
+	HRESULT __stdcall KeyDownEvent(int v)
+	{
+
+		sprintf(buttonInfo, "Button Down:%d", v);
+
+		setButtonData(v, TRUE, JOYSTICK_ID);
+
+
+		//PlaySound((LPCTSTR)SND_ALIAS_SYSTEMEXCLAMATION, 0, SND_ALIAS_ID );
+		return S_OK;
+
+	}
+
+	HRESULT __stdcall KeyUpEvent(int v)
+	{
+		sprintf(buttonInfo, "Button Up:%d", v);
+		setButtonData(v, FALSE, JOYSTICK_ID);
+		//PlaySound("MailBeep", 0, SND_SYSTEM);
+		return S_OK;
+	}
+
+
+
+	BEGIN_SINK_MAP(CKeyboardEvents)
+		SINK_ENTRY_INFO(1, __uuidof(_IKeyboardEvents), 1, KeyDownEvent, &KeyDownInfo)
+		SINK_ENTRY_INFO(1, __uuidof(_IKeyboardEvents), 2, KeyUpEvent, &KeyUpInfo)
+	END_SINK_MAP()
+};
 
 class SpaceMouse::SpaceMouseImpl
 {
 public:
+	CKeyboardEvents events;
+	CComPtr<IKeyboard>  m_DevKeyb;
+
 	enum SupportedStatus
 	{
 		DETECTION_PENDING,
@@ -60,6 +112,9 @@ public:
 
 	int initialize()
 	{
+
+		
+
 		HRESULT hr = ::CoInitializeEx(NULL, COINIT_MULTITHREADED);
 
 		// Create the device object
@@ -82,6 +137,7 @@ public:
 
 				_supported = SUPPORTED;
 
+				initKeyBoardEvents(); //Greg
 				return(1); //Base::SUCCESS
 			}
 		}
@@ -93,6 +149,8 @@ public:
 
 	void shutdown()
 	{
+		HRESULT hrk = events.DispEventUnadvise(m_DevKeyb);
+
 		if (_3DSensor)
 			_3DSensor.Release();
 
@@ -104,11 +162,31 @@ public:
 			_3DxDevice->Disconnect();
 			_3DxDevice.Release();
 		}
+
 	}
 
-	int getKeyBoard()
+
+
+
+	HRESULT initKeyBoardEvents()
 	{
 	//	CComPtr<IVector3D> pTranslation = _3DKeyboard->
+			
+		HRESULT hrk = _3DxDevice->get_Keyboard(&m_DevKeyb);
+
+
+		if (SUCCEEDED(hrk) && m_DevKeyb.p)
+		{
+			
+			hrk = events.DispEventAdvise(m_DevKeyb);
+
+			if (FAILED(hrk))
+			{
+
+			//	cerr << "3Dconnexion plugin [" << hrk << "]: " << "FAILED to register for device button events.\n";
+			}
+		}
+		return S_OK;
 	}
 
 	int getTranslations(double& dTX, double& dTY, double& dTZ)
@@ -120,7 +198,7 @@ public:
 			dTransFactor /= 5.0;
 
 			dTransFactor = 1;
-
+			
 			dTX = pTranslation->X * dTransFactor;
 			dTY = pTranslation->Y * dTransFactor;
 			dTZ = pTranslation->Z * dTransFactor;
@@ -171,8 +249,6 @@ private:
 	CComPtr<ISensor>       _3DSensor;
 	CComPtr<IKeyboard>     _3DKeyboard;
 };
-
-
 
 
 

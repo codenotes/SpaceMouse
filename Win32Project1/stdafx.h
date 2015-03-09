@@ -34,5 +34,6 @@
 #include <atlctl.h>
 #include <atlhost.h>
 
+#define JOYSTICK_ID 1
 
 // TODO: reference additional headers your program requires here

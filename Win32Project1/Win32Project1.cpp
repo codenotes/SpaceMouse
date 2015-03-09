@@ -5,10 +5,23 @@
 #include "Win32Project1.h"
 #include <cstdio>
 #define MAX_LOADSTRING 100
-char temp[512];
 
-//#define RDB(X, ...) ROS_DEBUG_NAMED("interop",X, __VA_ARGS__)
+
+
+char temp[512];
+char buttonInfo[512];
+
 #define LOG(X, ...) {sprintf(temp,X, __VA_ARGS__); OutputDebugString(temp);}
+
+bool initFeeder(UINT iInterface = 1);
+void setButtonData(int button, bool state, UINT iInterface = 1);
+void setJoyData(long X, long Y, long Z, long XR, long ZR, UINT iInterface = 1);
+
+
+
+HWND hWnd;
+//#define RDB(X, ...) ROS_DEBUG_NAMED("interop",X, __VA_ARGS__)
+
 
 // Global Variables:
 HINSTANCE hInst;								// current instance
@@ -111,7 +124,7 @@ ATOM MyRegisterClass(HINSTANCE hInstance)
 //
 BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
 {
-   HWND hWnd;
+   
 
    hInst = hInstance; // Store instance handle in our global variable
 
@@ -127,10 +140,16 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    UpdateWindow(hWnd);
 
    strcpy(temp, "initial");
+   strcpy(buttonInfo, "initial");
+
+   initFeeder(JOYSTICK_ID);
+
    pSpaceMouse = new  osgVisual::SpaceMouse();
    int ret = pSpaceMouse->initialize();
 
    LOG("return:&d", ret);
+
+   SendMessage(hWnd, WM_COMMAND, IDM_ABOUT, IDM_ABOUT);
 
    return TRUE;
 }
@@ -193,7 +212,9 @@ LRESULT CALLBACK WndProc(HWND hWnd, UINT message, WPARAM wParam, LPARAM lParam)
 		break;
 	case WM_PAINT:
 		hdc = BeginPaint(hWnd, &ps);
-		TextOut(hdc, 10, 10, TEXT("123"), strlen("123"));
+
+		//            X   Y    
+		TextOut(hdc, 20, 10, TEXT(buttonInfo), strlen(buttonInfo));
 		TextOut(hdc, 20, 40, TEXT(temp), strlen(temp));
 		//pSpaceMouse->getRotations(x, y, z);
 		//sprintf(temp, "x:%.2f y:%.2f z:%.2f\n", x, y, z);
