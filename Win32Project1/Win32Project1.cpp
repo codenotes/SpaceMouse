@@ -41,6 +41,10 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
                      _In_ LPTSTR    lpCmdLine,
                      _In_ int       nCmdShow)
 {
+
+	AllocConsole();
+	freopen("CONOUT$", "w", stdout);
+	
 	UNREFERENCED_PARAMETER(hPrevInstance);
 	UNREFERENCED_PARAMETER(lpCmdLine);
 
@@ -48,6 +52,11 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 	MSG msg;
 	HACCEL hAccelTable;
 //	char temp[512];
+
+	//alloc console and show console
+	
+
+
 
 	// Initialize global strings
 	LoadString(hInstance, IDS_APP_TITLE, szTitle, MAX_LOADSTRING);
@@ -63,7 +72,6 @@ int APIENTRY _tWinMain(_In_ HINSTANCE hInstance,
 	hAccelTable = LoadAccelerators(hInstance, MAKEINTRESOURCE(IDC_WIN32PROJECT1));
 
 	
-
 
 	//sprintf(temp,"returned:%d", ret);
 
@@ -143,6 +151,10 @@ BOOL InitInstance(HINSTANCE hInstance, int nCmdShow)
    strcpy(buttonInfo, "initial");
 
    initFeeder(JOYSTICK_ID);
+
+
+   BOOL b = AllocConsole();
+   AttachConsole(-1);
 
    pSpaceMouse = new  osgVisual::SpaceMouse();
    int ret = pSpaceMouse->initialize();

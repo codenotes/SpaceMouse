@@ -1,56 +1,26 @@
-﻿Build started 3/7/2015 2:02:31 PM.
-Project "C:\Users\gbrill\Source\Repos\SpaceMouse\SpaceMouseATL\SpaceMouseATL.vcxproj" on node 2 (Build target(s)).
-Midl:
-  C:\Program Files (x86)\Windows Kits\8.1\bin\x86\midl.exe /D _DEBUG /W1 /nologo /char signed /env win32 /Oicf /h "SpaceMouseATL_i.h" /iid "SpaceMouseATL_i.c" /proxy "SpaceMouseATL_p.c" /tlb "Debug\SpaceMouseATL.tlb" /robust SpaceMouseATL.idl 
-  Processing .\SpaceMouseATL.idl
-  SpaceMouseATL.idl
-  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oaidl.idl
-  oaidl.idl
-  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\objidl.idl
-  objidl.idl
-  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\unknwn.idl
-  unknwn.idl
-  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\wtypes.idl
-  wtypes.idl
-  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\wtypesbase.idl
-  wtypesbase.idl
-  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\basetsd.h
-  basetsd.h
-  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\shared\guiddef.h
-  guiddef.h
-  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\ocidl.idl
-  ocidl.idl
-  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oleidl.idl
-  oleidl.idl
-  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\servprov.idl
-  servprov.idl
-  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\urlmon.idl
-  urlmon.idl
-  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\msxml.idl
-  msxml.idl
-  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\oaidl.acf
-  oaidl.acf
-  Processing C:\Program Files (x86)\Windows Kits\8.1\Include\um\ocidl.acf
-  ocidl.acf
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\SpaceMouseATL.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
-  stdafx.cpp
-  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\SpaceMouseATL.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt SpaceMouseATL.cpp
-  SpaceMouseATL.cpp
-  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt SpaceMouseATL_i.c
-  SpaceMouseATL_i.c
-ResourceCompile:
-  C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _DEBUG /D _UNICODE /D UNICODE /l"0x0409" /IDebug\ /nologo /fo"Debug\SpaceMouseATL.res" SpaceMouseATL.rc 
-Link:
-  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\gbrill\Source\Repos\SpaceMouse\Debug\SpaceMouseATL.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\gbrill\Source\Repos\SpaceMouse\Debug\SpaceMouseATL.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X86 Debug\SpaceMouseATL.res
-  Debug\SpaceMouseATL.obj
-  Debug\SpaceMouseATL_i.obj
-  Debug\stdafx.obj
-  SpaceMouseATL.vcxproj -> C:\Users\gbrill\Source\Repos\SpaceMouse\Debug\SpaceMouseATL.exe
-RegisterOutput:
-  "C:\Users\gbrill\Source\Repos\SpaceMouse\Debug\SpaceMouseATL.exe" /RegServer
-Done Building Project "C:\Users\gbrill\Source\Repos\SpaceMouse\SpaceMouseATL\SpaceMouseATL.vcxproj" (Build target(s)).
+﻿Build started 6/1/2015 4:11:41 PM.
+     1>Project "C:\Users\gbrill\Source\Repos\SpaceMouse\SpaceMouseATL\SpaceMouseATL.vcxproj" on node 2 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\SpaceMouseATL.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yu"stdafx.h" /Fp"Debug\SpaceMouseATL.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt SpaceMouseATL.cpp
+         SpaceMouseATL.cpp
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _WINDOWS /D _DEBUG /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TC /analyze- /errorReport:prompt SpaceMouseATL_i.c
+         SpaceMouseATL_i.c
+       ResourceCompile:
+         C:\Program Files (x86)\Windows Kits\8.1\bin\x86\rc.exe /D _DEBUG /D _UNICODE /D UNICODE /l"0x0409" /IDebug\ /nologo /fo"Debug\SpaceMouseATL.res" SpaceMouseATL.rc 
+       Link:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\link.exe /ERRORREPORT:PROMPT /OUT:"C:\Users\gbrill\Source\Repos\SpaceMouse\Debug\SpaceMouseATL.exe" /INCREMENTAL /NOLOGO kernel32.lib user32.lib gdi32.lib winspool.lib comdlg32.lib advapi32.lib shell32.lib ole32.lib oleaut32.lib uuid.lib odbc32.lib odbccp32.lib /MANIFEST /MANIFESTUAC:"level='asInvoker' uiAccess='false'" /manifest:embed /DEBUG /PDB:"C:\Users\gbrill\Source\Repos\SpaceMouse\Debug\SpaceMouseATL.pdb" /SUBSYSTEM:WINDOWS /TLBID:1 /DYNAMICBASE /NXCOMPAT /MACHINE:X86 Debug\SpaceMouseATL.res
+         Debug\SpaceMouseATL.obj
+         Debug\SpaceMouseATL_i.obj
+         Debug\stdafx.obj
+         SpaceMouseATL.vcxproj -> C:\Users\gbrill\Source\Repos\SpaceMouse\Debug\SpaceMouseATL.exe
+       RegisterOutput:
+         "C:\Users\gbrill\Source\Repos\SpaceMouse\Debug\SpaceMouseATL.exe" /RegServer
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(1614,5): warning MSB3073: The command ""C:\Users\gbrill\Source\Repos\SpaceMouse\Debug\SpaceMouseATL.exe" /RegServer" exited with code -2147319780.
+     1>C:\Program Files (x86)\MSBuild\Microsoft.Cpp\v4.0\V120\Microsoft.CppCommon.targets(1620,5): error MSB8011: Failed to register output. Please try enabling Per-user Redirection or register the component from a command prompt with elevated permissions.
+     1>Done Building Project "C:\Users\gbrill\Source\Repos\SpaceMouse\SpaceMouseATL\SpaceMouseATL.vcxproj" (Build target(s)) -- FAILED.
 
-Build succeeded.
+Build FAILED.
 
-Time Elapsed 00:00:03.02
+Time Elapsed 00:00:02.70

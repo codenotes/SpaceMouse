@@ -67,6 +67,10 @@ namespace osgVisual
 		int getRotations(double& dX, double& dY, double& dZ);
 		int getKeyBoard();
 		HRESULT OnDevKeyDown(long keycode);
+
+		void vJoyInit();
+
+
 	private:
 		/**
 		* \brief Device driver class

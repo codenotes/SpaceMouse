@@ -27,5 +27,8 @@
 #include <atlctl.h>
 #include <atlhost.h>
 
+#include "..\vJoyFeederSDK\inc\vjoyinterface.h"
+#include "..\vJoyFeederSDK\inc\public.h"
+
 
 // TODO: reference additional headers your program requires here

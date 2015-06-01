@@ -37,7 +37,8 @@
 using namespace ATL;
 using namespace osgVisual;
 
-
+#include "..\vJoyFeederSDK\inc\vjoyinterface.h"
+#include "..\vJoyFeederSDK\inc\public.h"
 
 #include "C:\Users\gbrill\Source\Repos\SpaceMouse\ConsoleATLTest\Debug\tdxinput.tlh"
 
@@ -289,3 +290,115 @@ int SpaceMouse::getRotations(double& dX, double& dY, double& dZ)
 	dZ = 0;
 	return(_spaceMouseImpl->getRotations(dX, dY, dZ));
 }
+
+int SpaceMouse::vJoyInit(int device=1)
+{
+
+
+	USHORT X, Y, Z, ZR, XR;							// Position of several axes
+	BYTE id = 1;										// ID of the target vjoy device (Default is 1)
+	UINT iInterface = device;								// Default target vJoy device
+	BOOL ContinuousPOV = FALSE;						// Continuous POV hat (or 4-direction POV Hat)
+	int count = 0;
+
+
+	// Get the ID of the target vJoy device
+//	if (argc>1 && wcslen(argv[1]))
+//		sscanf_s((char *)(argv[1]), "%d", &iInterface);
+
+
+	// Get the driver attributes (Vendor ID, Product ID, Version Number)
+	if (!vJoyEnabled())
+	{
+		_tprintf("vJoy driver not enabled: Failed Getting vJoy attributes.\n");
+		return -2;
+	}
+	else
+	{
+		_tprintf("Vendor: %S\nProduct :%S\nVersion Number:%S\n", TEXT(GetvJoyManufacturerString()), TEXT(GetvJoyProductString()), TEXT(GetvJoySerialNumberString()));
+	};
+
+	WORD VerDll, VerDrv;
+	if (!DriverMatch(&VerDll, &VerDrv))
+	{
+		_tprintf("Failed\r\nvJoy Driver (version %04x) does not match vJoyInterface DLL (version %04x)\n", VerDrv, VerDll);
+	}
+	else
+		_tprintf("OK - vJoy Driver and vJoyInterface DLL match vJoyInterface DLL (version %04x)\n", VerDrv);
+
+	// Get the state of the requested device
+	VjdStat status = GetVJDStatus(iInterface);
+	switch (status)
+	{
+	case VJD_STAT_OWN:
+		_tprintf("vJoy Device %d is already owned by this feeder\n", iInterface);
+		break;
+	case VJD_STAT_FREE:
+		_tprintf("vJoy Device %d is free\n", iInterface);
+		break;
+	case VJD_STAT_BUSY:
+		_tprintf("vJoy Device %d is already owned by another feeder\nCannot continue\n", iInterface);
+		return -3;
+	case VJD_STAT_MISS:
+		_tprintf("vJoy Device %d is not installed or disabled\nCannot continue\n", iInterface);
+		return -4;
+	default:
+		_tprintf("vJoy Device %d general error\nCannot continue\n", iInterface);
+		return -1;
+	};
+
+	BOOL AxisX = GetVJDAxisExist(iInterface, HID_USAGE_X);
+	BOOL AxisY = GetVJDAxisExist(iInterface, HID_USAGE_Y);
+	BOOL AxisZ = GetVJDAxisExist(iInterface, HID_USAGE_Z);
+	BOOL AxisRX = GetVJDAxisExist(iInterface, HID_USAGE_RX);
+	BOOL AxisRZ = GetVJDAxisExist(iInterface, HID_USAGE_RZ);
+	// Get the number of buttons and POV Hat switchessupported by this vJoy device
+	int nButtons = GetVJDButtonNumber(iInterface);
+	int ContPovNumber = GetVJDContPovNumber(iInterface);
+	int DiscPovNumber = GetVJDDiscPovNumber(iInterface);
+
+	// Print results
+	//_tprintf("\nvJoy Device %d capabilities:\n", iInterface);
+	//_tprintf("Numner of buttons\t\t%d\n", nButtons);
+	//_tprintf("Numner of Continuous POVs\t%d\n", ContPovNumber);
+	//_tprintf("Numner of Descrete POVs\t\t%d\n", DiscPovNumber);
+	//_tprintf("Axis X\t\t%s\n", AxisX ? "Yes" : "No");
+	//_tprintf("Axis Y\t\t%s\n", AxisX ? "Yes" : "No");
+	//_tprintf("Axis Z\t\t%s\n", AxisX ? "Yes" : "No");
+	//_tprintf("Axis Rx\t\t%s\n", AxisRX ? "Yes" : "No");
+	//_tprintf("Axis Rz\t\t%s\n", AxisRZ ? "Yes" : "No");
+
+
+
+	// Acquire the target
+	if ((status == VJD_STAT_OWN) || ((status == VJD_STAT_FREE) && (!AcquireVJD(iInterface))))
+	{
+		_tprintf("Failed to acquire vJoy device number %d.\n", iInterface);
+		return -1;
+	}
+	else
+	{
+		_tprintf("Acquired: vJoy device number %d.\n", iInterface);
+	}
+
+	return true;
+
+
+
+
+}
+
+//void SpaceMouse::setJoyData(long X, long Y, long Z, long XR, long ZR)
+//{
+//	int count, res;
+//
+//	res = SetAxis(X, iInterface, HID_USAGE_X);
+//	res = SetAxis(Y, iInterface, HID_USAGE_Y);
+//	res = SetAxis(Z, iInterface, HID_USAGE_Z);
+//	res = SetAxis(XR, iInterface, HID_USAGE_RX);
+//	res = SetAxis(ZR, iInterface, HID_USAGE_RZ);
+//
+//	// Press/Release Buttons
+//
+//
+//}

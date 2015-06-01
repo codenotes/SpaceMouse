@@ -1,11 +1,13 @@
-﻿Build started 3/7/2015 1:56:16 PM.
-Project "C:\Users\gbrill\Source\Repos\SpaceMouse\ConsoleATLTest\ConsoleATLTest.vcxproj" on node 2 (Build target(s)).
-ClCompile:
-  C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt manip_SpaceMouse.cpp
-  manip_SpaceMouse.cpp
-c:\users\gbrill\source\repos\spacemouse\consoleatltest\manip_spacemouse.cpp(139): error C2064: term does not evaluate to a function taking 0 arguments
-Done Building Project "C:\Users\gbrill\Source\Repos\SpaceMouse\ConsoleATLTest\ConsoleATLTest.vcxproj" (Build target(s)) -- FAILED.
+﻿Build started 6/1/2015 4:11:41 PM.
+     1>Project "C:\Users\gbrill\Source\Repos\SpaceMouse\ConsoleATLTest\ConsoleATLTest.vcxproj" on node 3 (Build target(s)).
+     1>ClCompile:
+         C:\Program Files (x86)\Microsoft Visual Studio 12.0\VC\bin\CL.exe /c /ZI /nologo /W3 /WX- /Od /Oy- /D WIN32 /D _DEBUG /D _CONSOLE /D _LIB /D _UNICODE /D UNICODE /Gm /EHsc /RTC1 /MDd /GS /fp:precise /Zc:wchar_t /Zc:forScope /Yc"stdafx.h" /Fp"Debug\ConsoleATLTest.pch" /Fo"Debug\\" /Fd"Debug\vc120.pdb" /Gd /TP /analyze- /errorReport:prompt stdafx.cpp
+         stdafx.cpp
+     1>c:\users\gbrill\source\repos\spacemouse\consoleatltest\manip_spacemouse.h(69): error C2146: syntax error : missing ';' before identifier 'OnDevKeyDown'
+     1>c:\users\gbrill\source\repos\spacemouse\consoleatltest\manip_spacemouse.h(69): error C4430: missing type specifier - int assumed. Note: C++ does not support default-int
+     1>c:\users\gbrill\source\repos\spacemouse\consoleatltest\manip_spacemouse.h(69): warning C4183: 'OnDevKeyDown': missing return type; assumed to be a member function returning 'int'
+     1>Done Building Project "C:\Users\gbrill\Source\Repos\SpaceMouse\ConsoleATLTest\ConsoleATLTest.vcxproj" (Build target(s)) -- FAILED.
 
 Build FAILED.
 
-Time Elapsed 00:00:01.53
+Time Elapsed 00:00:01.11

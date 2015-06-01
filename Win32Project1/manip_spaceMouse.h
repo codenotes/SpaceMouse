@@ -65,7 +65,12 @@ namespace osgVisual
 		* @return : 1=sucess, 0=failure.
 		*/
 		int getRotations(double& dX, double& dY, double& dZ);
+		int vJoyInit(int device=1);
+		void SpaceMouse::setJoyData(long X, long Y, long Z, long XR, long ZR);
+		void SpaceMouse::setButtonData(int button, bool state, UINT iInterface);
+
 	private:
+		int iInterface;
 		/**
 		* \brief Device driver class
 		*

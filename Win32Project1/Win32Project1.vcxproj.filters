@@ -38,10 +38,10 @@
     <ClCompile Include="Win32Project1.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="..\ConsoleATLTest\manip_SpaceMouse.cpp">
+    <ClCompile Include="vJoyFeeder.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
-    <ClCompile Include="vJoyFeeder.cpp">
+    <ClCompile Include="manip_SpaceMouse.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
